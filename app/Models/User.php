@@ -17,6 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+
+
     protected $fillable = [
         'name',
         'email',
@@ -28,7 +31,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+   
+
     protected $hidden = [
+
         'password',
         'remember_token',
     ];
@@ -42,4 +48,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    // many to one
+    // each user can have many bookings
+    public function bookings()
+    {
+        return $this->hasMany(Booking::Class);
+    }
+
 }
