@@ -54,7 +54,7 @@ class User extends Authenticatable
     // each user can have many bookings
     public function bookings()
     {
-        return $this->hasMany(Booking::Class);
+        return $this->hasMany(Booking::class);
     }
 
 }
