@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Admin\auth\AdminAuthController;
 use App\Http\Controllers\Admin\admin\AdminController;
 use App\Http\Controllers\Admin\book\AdminBookingController;
@@ -19,47 +18,39 @@ use App\Http\Controllers\Admin\ticket\AdminTicketController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Admin authentication routes
+Route::put('/Admin/auth/', [AdminAuthController::class, 'register']);
+Route::post('/Admin/auth/', [AdminAuthController::class, 'login']);
+
+// Admin routes for managing admins
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/Admin/admin', [AdminController::class, 'index']);
+    Route::post('/Admin/admin', [AdminController::class, 'store']);
+    Route::get('/Admin/admin/{id}', [AdminController::class, 'show']);
+    Route::put('/Admin/admin/{id}', [AdminController::class, 'update']);
+    Route::delete('/Admin/admin/{id}', [AdminController::class, 'destroy']);
+
+    // Admin routes for managing users
+    Route::get('/Admin/user', [AdminUserController::class, 'index']);
+    Route::post('/Admin/user', [AdminUserController::class, 'store']);
+    Route::get('/Admin/user/{id}', [AdminUserController::class, 'show']);
+    Route::put('/Admin/user/{id}', [AdminUserController::class, 'update']);
+    Route::delete('/Admin/user/{id}', [AdminUserController::class, 'destroy']);
+
+    // Admin routes for managing tickets
+    Route::get('/Admin/ticket', [AdminTicketController::class, 'index']);
+    Route::post('/Admin/ticket', [AdminTicketController::class, 'store']);
+    Route::get('/Admin/ticket/{id}', [AdminTicketController::class, 'show']);
+    Route::put('/Admin/ticket/{id}', [AdminTicketController::class, 'update']);
+    Route::delete('/Admin/ticket/{id}', [AdminTicketController::class, 'destroy']);
+
+    // Admin routes for managing bookings
+    Route::get('/Admin/book', [AdminBookingController::class, 'index']);
+    Route::post('/Admin/book', [AdminBookingController::class, 'store']);
+    Route::get('/Admin/book/{id}', [AdminBookingController::class, 'show']);
+    Route::put('/Admin/book/{id}', [AdminBookingController::class, 'update']);
+    Route::delete('/Admin/book/{id}', [AdminBookingController::class, 'destroy']);
 });
 
-//admin authuantication
-Route::put('/Admin/auth/',[AdminAuthController::class , 'register']);
-Route::post('/Admin/auth/',[AdminAuthController::class , 'login']);
-
-//admin routes for creating , editing , deleting ,returning admins
-Route::get('/Admin/admin', [AdminController::class, 'index']);
-Route::post('/Admin/admin', [AdminController::class, 'store']);
-Route::get('/Admin/admin/{id}',[AdminController::class , 'show']);
-Route::put('/Admin/admin/{id}',[AdminController::class , 'update']);
-Route::delete('/Admin/admin/{id}',[AdminController::class , 'destroy']);
-
-//admin routes for creating , editing , deleting ,returning users
-Route::get('/Admin/user' , [AdminUserController::class , 'index' ]);
-Route::post('/Admin/user' , [AdminUserController::class , 'store' ]);
-Route::get('/Admin/user/{id}' , [AdminUserController::class , 'show']);
-Route::put('/Admin/user/{id}' , [AdminUserController::class , 'update']);
-Route::delete('/Admin/user/{id}' , [AdminUserController::class , 'destroy']);
-
-//admin routes for creating , editing , deleting ,returning tickets
-Route::get('/Admin/ticket' , [AdminTicketController::class , 'index' ]);
-Route::post('/Admin/ticket' , [AdminTicketController::class , 'store' ]);
-Route::get('/Admin/ticket/{id}' , [AdminTicketController::class , 'show']);
-Route::put('/Admin/ticket/{id}' , [AdminTicketController::class , 'update']);
-Route::delete('/Admin/ticket/{id}' , [AdminTicketController::class , 'destroy']);
-
-// //admin routes for creating , editing , deleting ,returning bookings
-// Route::get('/Admin/book' , [AdminBookingController::class , 'index' ]);
-// Route::post('/Admin/book' , [AdminBookingController::class , 'store' ]);
-// Route::get('/Admin/book/{id}' , [AdminBookingController::class , 'show']);
-// Route::put('/Admin/book/{id}' , [AdminBookingController::class , 'update']);
-// Route::delete('/Admin/book/{id}' , [AdminBookingController::class , 'destroy']);
-
-
-
-
-
-
-
-
+// User authentication routes
 

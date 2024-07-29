@@ -29,24 +29,36 @@ class AdminAuthController extends Controller
         ]);
     }
 
+    
     public function login(Request $request)
     {
+        // Validate the incoming request
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ]);
+
         $credentials = $request->only(['email', 'password']);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            $admin = Auth::guard('admin')->user();
+        // Find the admin user by email
+        $admin = Admin::where('email', $credentials['email'])->first();
+
+        // Check if admin exists and password is correct
+        if ($admin && Hash::check($credentials['password'], $admin->password)) {
+            // Generate a token for the admin
             $accessToken = $admin->createToken('authToken')->plainTextToken;
+
             return response()->json([
                 "status" => true,
                 "message" => "Successfully logged in",
                 "admin" => $admin,
                 "access_token" => $accessToken
-            ]);
+            ], 200);
         } else {
             return response()->json([
                 "status" => false,
                 "message" => "Incorrect email or password",
-            ]);
+            ], 401);
         }
     }
 }
