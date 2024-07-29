@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -72,26 +72,36 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        $searchadmin = Admin::findorfail($id);
+{
+    $searchadmin = Admin::findOrFail($id);
 
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:admins,email',
-            'password' => 'required|string|min:6',
-        ]);
+    $validator = Validator::make($request->all(), [
+        'email' => 'email|unique:admins,email,' . $id,
+        'name' => 'string|max:255',
+        'password' => 'nullable|string|min:6',
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
-        }else{
-            $searchadmin->update($request->all());
-            return response()->json([
-                    'success'=>true,
-                    'message'=>"Updated Successfully",
-                    "Admin"=>$searchadmin
-                ]);
-        }
-        
+    if ($validator->fails()) {
+        return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
     }
+
+    // Update the admin fields , take the old values if not provided
+    $searchadmin->email = $request->input('email', $searchadmin->email);
+    $searchadmin->name = $request->input('name', $searchadmin->name);
+    
+    // If a password is provided, hash it
+    if ($request->filled('password')) {
+        $searchadmin->password = bcrypt($request->input('password'));
+    }
+
+    $searchadmin->save();
+
+    return response()->json([
+        'success' => true,
+        'message' => "Updated Successfully",
+        'Admin' => $searchadmin,
+    ]);
+}
 
     /**
      * Remove the specified resource from storage.
