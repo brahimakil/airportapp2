@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\Admin;
 
+use PHPUnit\TextUI\XmlConfiguration\FailedSchemaDetectionResult;
 use function Laravel\Prompts\search;
 
 class AdminController extends Controller
@@ -53,7 +54,17 @@ class AdminController extends Controller
     public function show(string $id)
     {
         $searchadmin = Admin::findorfail($id);
-        return response()->json($searchadmin);
+        if ($searchadmin)
+        {
+            return response()->json($searchadmin);
+        }
+        else
+        {
+            return response()->json([
+                'success'=>false,
+                'message'=>'Admin is not found'
+            ]);
+        }
 
     }
 
@@ -88,11 +99,20 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         $searchadmin = Admin::findorfail($id);
-        $searchadmin->delete();
-
-        return response()->json([
-            "success"=>true,
-            "message"=>"Deleted successfully",
-        ]);
+        if ($searchadmin)
+        {
+            $searchadmin->delete();
+            return response()->json([
+                "success"=>true,
+                "message"=>"Deleted successfully",
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                "success"=>false,
+                "message"=>"Admin not found",
+                ]);
+        }
     }
 }
