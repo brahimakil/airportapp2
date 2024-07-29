@@ -16,9 +16,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
             $table->string('booking_date');
-            $table->string('flight_id');
             $table->enum('status',['cancelled','booked'])->default('booked'); 
             $table->timestamps();
+
+
         });
     }
 
