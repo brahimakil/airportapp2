@@ -2,10 +2,16 @@
 use App\Http\Controllers\Admin\auth\AdminAuthController;
 use App\Http\Controllers\Admin\admin\AdminController;
 use App\Http\Controllers\Admin\book\AdminBookingController;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\user\AdminUserController;
+
 use App\Http\Controllers\Admin\ticket\AdminTicketController;
+
+
+use App\Http\Controllers\User\auth\UserAuthConroller;
+use App\Http\Controllers\User\ticket\UserTicketContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +59,18 @@ Route::middleware(['auth:admin'])->group(function () {
 });
 
 // User authentication routes
+
+Route::put('/User/auth', [UserAuthConroller::class, 'register']);
+Route::post('/User/auth', [UserAuthConroller::class, 'login']);
+
+Route::middleware(['auth:admin'])->group(function () {
+
+
+    Route::get('User/ticket',[UserTicketContoller::class,'index']);
+    Route::get('User/ticket/{id}',[UserTicketContoller::class,'show']);
+
+
+
+
+});
 
