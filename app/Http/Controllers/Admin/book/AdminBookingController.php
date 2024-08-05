@@ -20,6 +20,10 @@ class AdminBookingController extends Controller
         if ($allbookings) {
             return response()->json($allbookings);
         }
+        else
+    {
+        return response()->json(['message' => 'No bookings found'], 404);
+    }
     }
 
 
@@ -55,11 +59,11 @@ class AdminBookingController extends Controller
         $ticket -> save();
         
         return response()->json([
-         'success' => 'Ticket booked successfully.',
-         'message'=> true ,
-         'booking'=>$booking ,
-         'price'=>$ticket->price ,
-         'arrival_time'=>$ticket->arrival_time
+        'success' => 'Ticket booked successfully.',
+        'message'=> true ,
+        'booking'=>$booking ,
+        'price'=>$ticket->price ,
+        'arrival_time'=>$ticket->arrival_time
         ]);
 
     }
@@ -86,7 +90,29 @@ class AdminBookingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $booking=Booking::find($id);
+        if ($booking)
+        {
+            $ticket = Ticket::find($booking->ticket_id);
+            if ($ticket->status !== 'available') 
+            {
+                return response()->json(['error' => 'Ticket is not available for booking.'], 400);
+            }
+            $validator = Validator::make($request->all(), [
+            'user_id' => 'integer,exists:users,id',
+            'ticket_id' => 'integer,exists:tickets,id',
+            'booking_date' => 'date', // Validate booking date
+            ]);
+            if ($validator->fails()) 
+            {
+                return response()->json(['error' => $validator->errors()], 400);
+            }
+            $ticket->status='available';
+            $ticket->save();
+            $booking->user_id = $request->input('user_id', $booking->user_id);
+            $booking->ticket_id = $request->input('ticket_id', $booking->ticket_id);
+            $booking->booking_date = $request->input('booking_date', $booking->booking_date);
+        }
     }
 
     /**
