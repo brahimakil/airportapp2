@@ -13,7 +13,6 @@ class Booking extends Model
         'user_id',
         'ticket_id',
         'booking_date',
-        'status',
     ];
     // vise_verse the user-booking function in user model
     public function user()
