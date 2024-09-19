@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tickets', function (Blueprint $table)
-        {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->string('departure');
+            $table->string('destination');
             $table->string('flight_number');
             $table->string('seat_number');
-            $table->decimal('price',8,2);
+            $table->decimal('price', 8, 2);
             $table->timestamp('departure_time');
             $table->timestamp('arrival_time');
-            $table->enum('status',['available','booked'])->default('available');
-            $table->unique(['flight_number','seat_number']);
-            // one flight many seats
-            // many unique seats for every flight 
+            $table->enum('status', ['available', 'booked'])->default('available');
+            $table->unique(['flight_number', 'seat_number']);
+            $table->unique(['departure', 'destination']);
             $table->timestamps();
         });
     }

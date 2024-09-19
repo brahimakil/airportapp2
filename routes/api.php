@@ -25,16 +25,23 @@ use App\Http\Controllers\User\ticket\UserTicketContoller;
 */
 
 // Admin authentication routes
-Route::put('/Admin/auth/', [AdminAuthController::class, 'register']);
-Route::post('/Admin/auth/', [AdminAuthController::class, 'login']);
+    Route::put('/Admin/auth/', [AdminAuthController::class, 'register']);
+    Route::post('/Admin/auth/', [AdminAuthController::class, 'login']);
 
-// Admin routes for managing admins
-Route::middleware(['auth:admin'])->group(function () {
     Route::get('/Admin/admin', [AdminController::class, 'index']);
     Route::post('/Admin/admin', [AdminController::class, 'store']);
     Route::get('/Admin/admin/{id}', [AdminController::class, 'show']);
     Route::put('/Admin/admin/{id}', [AdminController::class, 'update']);
     Route::delete('/Admin/admin/{id}', [AdminController::class, 'destroy']);
+
+    Route::get('/Admin/ticket', [AdminTicketController::class, 'index']);
+    Route::post('/Admin/ticket', [AdminTicketController::class, 'store']);
+    Route::get('/Admin/ticket/{id}', [AdminTicketController::class, 'show']);
+    Route::put('/Admin/ticket/{id}', [AdminTicketController::class, 'update']);
+    Route::delete('/Admin/ticket/{id}', [AdminTicketController::class, 'destroy']);
+
+// Admin routes for managing admins
+Route::middleware(['auth:admin'])->group(function () {
 
     // Admin routes for managing users
     Route::get('/Admin/user', [AdminUserController::class, 'index']);
@@ -44,11 +51,6 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::delete('/Admin/user/{id}', [AdminUserController::class, 'destroy']);
 
     // Admin routes for managing tickets
-    Route::get('/Admin/ticket', [AdminTicketController::class, 'index']);
-    Route::post('/Admin/ticket', [AdminTicketController::class, 'store']);
-    Route::get('/Admin/ticket/{id}', [AdminTicketController::class, 'show']);
-    Route::put('/Admin/ticket/{id}', [AdminTicketController::class, 'update']);
-    Route::delete('/Admin/ticket/{id}', [AdminTicketController::class, 'destroy']);
 
     // Admin routes for managing bookings
     Route::get('/Admin/book', [AdminBookingController::class, 'index']);
@@ -66,11 +68,6 @@ Route::get('/User/ticket',[UserTicketContoller::class,'index']);
 Route::get('/User/ticket/{id}',[UserTicketContoller::class,'show']);
 
 Route::middleware(['auth:user'])->group(function () {
-
-
-
-
-
 
 });
 
