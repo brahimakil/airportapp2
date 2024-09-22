@@ -1053,12 +1053,15 @@
         {
             "name": "laravel/framework",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 <<<<<<< HEAD
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
             "version": "v10.48.15",
             "source": {
                 "type": "git",
@@ -1069,6 +1072,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/1723e038c9ec99b434e5bed9c27f044bd50a4ffb",
                 "reference": "1723e038c9ec99b434e5bed9c27f044bd50a4ffb",
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -1090,6 +1095,7 @@
 =======
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
                 "shasum": ""
             },
             "require": {
@@ -1287,6 +1293,9 @@
             "time": "2024-07-02T18:01:24+00:00"
 =======
 <<<<<<< HEAD
+            "time": "2024-07-02T18:01:24+00:00"
+=======
+<<<<<<< HEAD
             "time": "2024-06-21T10:06:42+00:00"
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 =======
@@ -1297,6 +1306,7 @@
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
         },
         {
             "name": "laravel/prompts",
@@ -5972,12 +5982,15 @@
         {
             "name": "laravel/sail",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 <<<<<<< HEAD
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
             "version": "v1.30.1",
             "source": {
                 "type": "git",
@@ -5988,6 +6001,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/8ba049b6c06e0330b6aa1fb7af2746fb4da445e4",
                 "reference": "8ba049b6c06e0330b6aa1fb7af2746fb4da445e4",
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -6009,6 +6024,7 @@
 =======
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
                 "shasum": ""
             },
             "require": {
@@ -6062,6 +6078,9 @@
             "time": "2024-07-01T20:55:03+00:00"
 =======
 <<<<<<< HEAD
+            "time": "2024-07-01T20:55:03+00:00"
+=======
+<<<<<<< HEAD
             "time": "2024-06-18T17:36:56+00:00"
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 =======
@@ -6072,6 +6091,7 @@
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
         },
         {
             "name": "mockery/mockery",
@@ -6754,12 +6774,15 @@
         {
             "name": "phpunit/phpunit",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
 <<<<<<< HEAD
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
             "version": "10.5.25",
             "source": {
                 "type": "git",
@@ -6770,6 +6793,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/831bf82312be6037e811833ddbea0b8de60ea314",
                 "reference": "831bf82312be6037e811833ddbea0b8de60ea314",
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -6791,6 +6816,7 @@
 =======
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
                 "shasum": ""
             },
             "require": {
@@ -6866,6 +6892,9 @@
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.25"
 =======
 <<<<<<< HEAD
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.25"
+=======
+<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.24"
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 =======
@@ -6876,6 +6905,7 @@
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
             },
             "funding": [
                 {
@@ -6895,6 +6925,9 @@
             "time": "2024-07-03T05:49:17+00:00"
 =======
 <<<<<<< HEAD
+            "time": "2024-07-03T05:49:17+00:00"
+=======
+<<<<<<< HEAD
             "time": "2024-06-20T13:09:54+00:00"
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 =======
@@ -6905,6 +6938,7 @@
 >>>>>>> ea4adfa33992bd51533a1d244e3964bfe857fed8
 >>>>>>> d3b26d82dc90b52567cfbf09a60acfe6df3f8f40
 >>>>>>> 5ea89665b5bc90f6530d2b6febba76cadf39ec87
+>>>>>>> ba31979def4a49cec23f384a6ac4eb303f4eb687
         },
         {
             "name": "sebastian/cli-parser",

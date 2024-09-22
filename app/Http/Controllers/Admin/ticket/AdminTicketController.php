@@ -23,6 +23,8 @@ class AdminTicketController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'departure' => 'required|string',
+            'destination' => 'required | string',
             'flight_number' => 'required|string',
             'seat_number' => 'required|string',
             'price' => 'required|numeric',
@@ -37,6 +39,8 @@ class AdminTicketController extends Controller
 
         // Create the new ticket after validation passes
         $new_ticket = new Ticket();
+        $new_ticket->departure = $request->departure;
+        $new_ticket->destination = $request->destination;
         $new_ticket->flight_number = $request->flight_number;
         $new_ticket->seat_number = $request->seat_number;
         $new_ticket->price = $request->price;
